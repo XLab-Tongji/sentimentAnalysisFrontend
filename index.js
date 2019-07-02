@@ -32,16 +32,16 @@ $(function(){
 			recorder.upload(function (data) {
 			//data 对象为录音后的音频数据
                 var fd = new FormData();
-                fd.append("audioData", data);
+                fd.append("file", data);
                 $.ajax({
-                    url : param.api.voiceUrl,
+                    url : 'http://127.0.0.1:5000/predict',
                     type : 'POST',
                     data : fd,
                     // 告诉jQuery不要去处理发送的数据
                     processData : false,
                     // 告诉jQuery不要去设置Content-Type请求头
                     contentType : false,
-                    success : function(res) {},
+                    success : function(res) {console.log(res)},
                     error : function(error) {
                         console.log("error");
                     }

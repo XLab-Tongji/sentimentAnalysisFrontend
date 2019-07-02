@@ -9,7 +9,7 @@
 
     var HZRecorder = function (stream, config) {
         config = config || {};
-        config.sampleBits = config.sampleBits || 16;      //采样数位 8, 16
+        config.sampleBits = config.sampleBits || 8;      //采样数位 8, 16
         config.sampleRate = config.sampleRate || (44100 / 6);   //采样率(1/6 44100)
 
         var audioInput = context.createMediaStreamSource(stream);
@@ -20,7 +20,7 @@
             size: 0          //录音文件长度
             , buffer: []     //录音缓存
             , inputSampleRate: context.sampleRate    //输入采样率
-            , inputSampleBits: 16       //输入采样数位 8, 16
+            , inputSampleBits: 8       //输入采样数位 8, 16
             , outputSampleRate: config.sampleRate    //输出采样率
             , oututSampleBits: config.sampleBits       //输出采样数位 8, 16
             , input: function (data) {
