@@ -12,8 +12,7 @@ $(function(){
 						console.log(vol)
 					})
                 });
-			//开始录音，其中replay是一个音频对象
-			text.innerText="录音中。。0s" 
+			//开始录音，其中replay是一个音频对象 
 			time = 0
 			timer = setInterval(function(){text.innerText="录音中。。"+time+"s"; time = time+1;},1000);
 		})
@@ -41,9 +40,14 @@ $(function(){
                     processData : false,
                     // 告诉jQuery不要去设置Content-Type请求头
                     contentType : false,
-                    success : function(res) {console.log(res)},
-                    error : function(error) {
-                        console.log("error");
+                    dataType: 'json',
+                    success : function(res) {
+                    	console.log(res);
+                    	console.log("success");
+                    	$("#results")[0].innerText = res
+                    },
+                    error : function(jqXHR,error, errorThrown) {
+                        console.log(error);
                     }
                 });
             });
