@@ -4,6 +4,8 @@ $(function(){
 		var text = $("#text")[0];
 		var timer;
 		$("#start").click(function(){
+			time = 1
+			timer = setInterval(function(){text.innerText="录音中。。"+time+"s"; time = time+1;},1000);
 			HZRecorder.get(function (rec) {
                     recorder = rec;
                     recorder.start();
@@ -13,8 +15,7 @@ $(function(){
 					})
                 });
 			//开始录音，其中replay是一个音频对象 
-			time = 0
-			timer = setInterval(function(){text.innerText="录音中。。"+time+"s"; time = time+1;},1000);
+			
 		})
 		$("#stop").click(function(){
 			//停止录音
